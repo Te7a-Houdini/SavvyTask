@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'welcome to savvy task';
 });
+
+Auth::routes();
+
+
+
+
+
+Route::get('/home', 'HomeController@index');
