@@ -9,7 +9,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="{{ url('/') }}" class="logo">
+        <a href="{{ route('user.index') }}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>S</b>T</span>
             <!-- logo for regular state and mobile devices -->
@@ -54,7 +54,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="#" class="btn btn-default btn-flat">Edit Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ url('/logout') }}"
@@ -98,7 +98,7 @@
             <ul class="sidebar-menu">
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+                <li class="active"><a href="{{route('user.index')}}"><i class="fa fa-link"></i> <span>Users</span></a></li>
                 <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
             </ul>
             <!-- /.sidebar-menu -->

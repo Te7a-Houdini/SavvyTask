@@ -6,7 +6,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">List Of Users</h3>
+                    <h3 class="box-title"><a href="{{route('register')}}" class="btn btn-success">Create</a></h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -17,6 +17,9 @@
                                         <th>Last Name</th>
                                         <th>Email</th>
                                         <th>Created At</th>
+                                        <th>View</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -28,6 +31,9 @@
                                         <td>{{$userObj->last_name}}</td>
                                         <td>{{$userObj->email}}</td>
                                         <td>{{$userObj->created_at}}</td>
+                                        <td><a href="#">View</a></td>
+                                        <td><a href="#">Edit</a></td>
+                                        <td><a href="#">Delete</a></td>
                                     </tr>
                                         @endforeach
 
