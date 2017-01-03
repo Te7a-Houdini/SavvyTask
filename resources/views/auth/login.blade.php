@@ -1,4 +1,4 @@
-@extends('layouts.loginLayout')
+@extends('layouts.authenticationLayout')
 
 @section('content')
     <div class="login-box">
@@ -11,7 +11,10 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="login-logo">
-                <b>Savvy Login</b>
+                    <a href="{{url('login')}}">
+                        <b>Savvy Login</b>
+                    </a>
+
                 </div>
 
                 <div class="panel-body">

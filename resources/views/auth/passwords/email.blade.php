@@ -1,13 +1,24 @@
-@extends('layouts.app')
+@extends('layouts.authenticationLayout')
 
 <!-- Main Content -->
 @section('content')
+
+    <div class="login-box">
+    </div>
+
+<body class="hold-transition login-page">
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
+
+                <div class="login-logo">
+                    <a href="{{url('login')}}">
+                        <b>Savvy Login</b>
+                    </a>
+
+                </div>
+                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -44,4 +55,6 @@
         </div>
     </div>
 </div>
+
+    </body>
 @endsection
