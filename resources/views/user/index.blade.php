@@ -31,7 +31,7 @@
                                         <td>{{$userObj->last_name}}</td>
                                         <td>{{$userObj->email}}</td>
                                         <td>{{$userObj->created_at}}</td>
-                                        <td><a href="#">View</a></td>
+                                        <td><a href="{{route('user.show',$userObj->id)}}">View</a></td>
                                         <td><a href="#">Edit</a></td>
                                         <td><a href="#">Delete</a></td>
                                     </tr>
