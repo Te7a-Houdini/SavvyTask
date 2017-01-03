@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
+Route::get('/user/index',['as' => 'user.index' ,'uses' => 'UserController@index']);
 
 
 
