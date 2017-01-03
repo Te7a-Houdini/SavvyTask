@@ -1,6 +1,7 @@
 @include('layouts.partials._header')
 
 
+<body class="skin-blue sidebar-mini">
 <div class="wrapper">
 
 
@@ -139,5 +140,5 @@
     <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
+</body>
   @include('layouts.partials._footer')

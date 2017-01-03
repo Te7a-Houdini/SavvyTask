@@ -1,11 +1,19 @@
 @extends('layouts.loginLayout')
 
 @section('content')
+    <div class="login-box">
+        </div>
+
+
+<body class="hold-transition login-page">
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="login-logo">
+                <b>Savvy Login</b>
+                </div>
+
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -65,4 +73,6 @@
         </div>
     </div>
 </div>
+
+</body>
 @endsection
