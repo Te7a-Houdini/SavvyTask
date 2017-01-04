@@ -25,7 +25,7 @@
                             <label for="en[name]" class="col-md-4 control-label">English Name</label>
 
                             <div class="col-md-6">
-                                <input id="en[name]" type="text" class="form-control" name="en[name]" value="{{ isset($category->en_name) ? $category->en_name : old('en[name]') }}" required autofocus>
+                                <input id="en[name]" type="text" class="form-control" name="en[name]" value="{{ isset($category->translate('en')->name) ? $category->translate('en')->name : old('en[name]') }}" required autofocus>
 
                                 @if ($errors->has('en.name'))
                                     <span class="help-block">
@@ -39,7 +39,7 @@
                             <label for="ar[name]" class="col-md-4 control-label">Arabic Name</label>
 
                             <div class="col-md-6">
-                                <input id="ar[name]" type="text" class="form-control" name="ar[name]" value="{{ isset($category->ar_name) ? $category->ar_name : old('ar[name]') }}" required autofocus>
+                                <input id="ar[name]" type="text" class="form-control" name="ar[name]" value="{{ isset($category->translate('ar')->name) ? $category->translate('ar')->name : old('ar[name]') }}" required autofocus>
 
                                 @if ($errors->has('ar.name'))
                                     <span class="help-block">
