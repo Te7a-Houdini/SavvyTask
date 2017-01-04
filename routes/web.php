@@ -24,4 +24,8 @@ Route::get('/user/{user}/edit', ['as' => 'user.edit' ,'uses' => 'UserController@
 Route::patch('/user/{user}', ['as' => 'user.update' ,'uses' => 'UserController@update']);
 Route::delete('/user/{user}', ['as' => 'user.delete', 'uses' => 'UserController@destroy']);
 
+/******** category routes *******/
+Route::resource('category', 'CategoryController');
+
+
 Route::get('/home', 'HomeController@index');
