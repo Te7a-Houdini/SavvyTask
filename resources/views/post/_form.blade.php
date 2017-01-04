@@ -72,6 +72,25 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
+                            <label for="category_id" class="col-md-4 control-label">Category</label>
+
+                            <div class="col-md-6">
+                                <select id="category_id" name="category_id" class="form-control">
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}" >{{$category->slug}}</option>
+                                     @endforeach
+
+                                </select>
+                                @if ($errors->has('category_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('category_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
                         <div class="form-group{{ $errors->has('image_url') ? ' has-error' : '' }}">
                             <label for="image_url" class="col-md-4 control-label">Image</label>
 

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Http\Requests\PostRequest;
+
 
 class PostController extends Controller
 {
@@ -31,7 +33,8 @@ class PostController extends Controller
             'post' => new Post(),
             'url' => route('post.store'),
             'method' => 'POST',
-            'action' => 'Create'
+            'action' => 'Create',
+            'categories' => Category::all()
         ]);
     }
 
@@ -43,15 +46,17 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
+
         $uploadedFile = $request->file('image_url');
 
         $newFileName = 'Post_Image_'. Carbon::now()->timestamp .'.'.$uploadedFile->extension();
 
         $uploadedFile->move('images/posts', $newFileName);
 
-        $request->replace(['image_url' => 'images/posts' . $newFileName]);
+        $request_array = $request->all();
+        $request_array['image_url'] = 'images/posts'. $newFileName;
 
-        Post::create($request->all());
+        Post::create($request_array);
 
         return redirect()->route('post.index');
     }

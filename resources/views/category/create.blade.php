@@ -2,6 +2,6 @@
 
 @section('content')
 
-    @include('category._form',compact('category','url','method','action'))
+    @include('category._form',compact('category','url','method','action','categories'))
 
 @endsection
