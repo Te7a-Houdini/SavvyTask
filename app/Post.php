@@ -9,7 +9,7 @@ class Post extends Model
     use \Dimsav\Translatable\Translatable;
 
     public $translatedAttributes = ['title','description'];
-    protected $fillable = ['image_url'];
+    protected $fillable = ['image_url','category_id'];
 
     public function category()
     {

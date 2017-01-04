@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -19,24 +21,39 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new category.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('post.create', [
+            'post' => new Post(),
+            'url' => route('post.store'),
+            'method' => 'POST',
+            'action' => 'Create'
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        $uploadedFile = $request->file('image_url');
+
+        $newFileName = 'Post_Image_'. Carbon::now()->timestamp .'.'.$uploadedFile->extension();
+
+        $uploadedFile->move('images/posts', $newFileName);
+
+        $request->replace(['image_url' => 'images/posts' . $newFileName]);
+
+        Post::create($request->all());
+
+        return redirect()->route('post.index');
     }
 
     /**
