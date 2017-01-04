@@ -54,7 +54,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Edit Profile</a>
+                                    <a href="{{route('user.edit',Auth::user()->id)}}" class="btn btn-default btn-flat">Edit Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ url('/logout') }}"
@@ -96,7 +96,7 @@
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
-                <li class="header">HEADER</li>
+                <li class="header">Controls</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li class="active"><a href="{{route('user.index')}}"><i class="fa fa-link"></i> <span>Users</span></a></li>
                 <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
