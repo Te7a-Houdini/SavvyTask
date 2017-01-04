@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -20,7 +21,7 @@ class UserController extends Controller
 
     /**
      * show one user
-     * @param $user
+     * @param \App\User $user
      * @return \Illuminate\Http\Response
      */
 
@@ -31,7 +32,7 @@ class UserController extends Controller
 
     /**
      * edit form for user
-     * @param $user
+     * @param \App\User $user
      * @return \Illuminate\Http\Response
      */
 
@@ -45,9 +46,22 @@ class UserController extends Controller
         ]);
     }
 
-    public function update(User $user)
+    /**
+     * edit form for user
+     * @param \App\User $user
+     * @return \Illuminate\Http\Response
+     */
+
+    public function update(UserRequest $request, User $user)
     {
-        dd($user);
+        $request->replace(['password' => $request->get('password')]);
+
+        //we are putting old user password in case he left fields empty
+        if (empty($request->get('password'))) {
+            $request->replace(['password' => $user->password]);
+        }
+
+        $user->update($request->all());
 
     }
 
