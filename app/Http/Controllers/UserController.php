@@ -55,14 +55,16 @@ class UserController extends Controller
 
     public function update(UserRequest $request, User $user)
     {
-        $request->replace(['password' => $request->get('password')]);
+
+        $request_array = $request->all();
+        $request_array['password'] = $request->get('password');
 
         //we are putting old user password in case he left fields empty
         if (empty($request->get('password'))) {
-            $request->replace(['password' => $user->password]);
+            $request_array['password'] = $user->password;
         }
 
-        $user->update($request->all());
+        $user->update($request_array);
 
         return redirect()->route('user.index');
     }
