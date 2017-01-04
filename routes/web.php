@@ -34,3 +34,4 @@ Route::group(['middleware' => 'auth'] , function () {
 
 
 Route::get('/', ['as' => 'home' ,'uses' =>'HomeController@indexCategories']);
+Route::get('/home/{category}', ['as' => 'home.category' ,'uses' =>'HomeController@showCategory']);
