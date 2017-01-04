@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('post.index', ['posts' => Post::paginate(4)]);
+        return view('post.index', ['posts' => Post::with('category')->paginate(4)]);
 
     }
 
@@ -46,12 +46,7 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-
-        $uploadedFile = $request->file('image_url');
-
-        $newFileName = 'Post_Image_'. Carbon::now()->timestamp .'.'.$uploadedFile->extension();
-
-        $uploadedFile->move('images/posts', $newFileName);
+        $newFileName = Post::uploadFile($request);
 
         $request_array = $request->all();
         $request_array['image_url'] = '/images/posts/'. $newFileName;
@@ -74,24 +69,41 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     *  @param  \App\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('post.edit', [
+            'post' => $post,
+            'url' => route('post.update', $post->id),
+            'method' => 'PATCH',
+            'action' => 'Update',
+            'categories' => Category::all()
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\PostRequest  $request
+     *  @param  \App\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        $request_array = $request->all();
+        unset($request_array['image_url']);
+
+        // we are uploading a new image
+        if ($request->file('image_url') != null) {
+            $newFileName =  Post::uploadFile($request);
+            $request_array['image_url'] = '/images/posts/'. $newFileName;
+        }
+
+        $post->update($request_array);
+
+        return redirect()->route('post.index');
     }
 
     /**

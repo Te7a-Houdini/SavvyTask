@@ -13,7 +13,7 @@
                             <label for="en[title]" class="col-md-4 control-label">English Title</label>
 
                             <div class="col-md-6">
-                                <input id="en[title]" type="text" class="form-control" name="en[title]" value="{{ isset($post->translate('en')->name) ? $post->translate('en')->name : old('en[name]') }}" required autofocus>
+                                <input id="en[title]" type="text" class="form-control" name="en[title]" value="{{ isset($post->translate('en')->title) ? $post->translate('en')->title : old('en.title') }}" required autofocus>
 
                                 @if ($errors->has('en.title'))
                                     <span class="help-block">
@@ -27,7 +27,7 @@
                             <label for="ar[title]" class="col-md-4 control-label">Arabic Title</label>
 
                             <div class="col-md-6">
-                                <input id="ar[title]" type="text" class="form-control" name="ar[title]" value="{{ isset($post->translate('en')->name) ? $post->translate('en')->name : old('en[name]') }}" required autofocus>
+                                <input id="ar[title]" type="text" class="form-control" name="ar[title]" value="{{ isset($post->translate('ar')->title) ? $post->translate('ar')->title : old('ar.title') }}" required autofocus>
 
                                 @if ($errors->has('ar.title'))
                                     <span class="help-block">
@@ -44,7 +44,7 @@
                             <div class="col-md-6">
 
                                 <textarea id="en[description]"  class="form-control" name="en[description]"  required autofocus>
-                                {{ isset($post->translate('en')->name) ? $post->translate('en')->name : old('en[name]') }}
+                                {{ isset($post->translate('en')->description) ? $post->translate('en')->description : old('en.description') }}
                                  </textarea>
 
                                 @if ($errors->has('en.description'))
@@ -61,7 +61,7 @@
                             <div class="col-md-6">
 
                                 <textarea id="ar[description]"   class="form-control" name="ar[description]"  required autofocus>
-                                {{ isset($post->translate('en')->name) ? $post->translate('en')->name : old('en[name]') }}
+                                {{ isset($post->translate('ar')->description) ? $post->translate('ar')->description : old('ar.description') }}
                                 </textarea>
 
                                 @if ($errors->has('ar.description'))
@@ -78,7 +78,9 @@
                             <div class="col-md-6">
                                 <select id="category_id" name="category_id" class="form-control">
                                     @foreach($categories as $category)
-                                        <option value="{{$category->id}}" >{{$category->slug}}</option>
+                                        <option value="{{$category->id}}" {{ isset($post->category_id) ? ( ($category->id == $post->category_id) ? 'selected' : '') : ''}} >
+                                            {{$category->slug}}
+                                        </option>
                                      @endforeach
 
                                 </select>
@@ -95,7 +97,7 @@
                             <label for="image_url" class="col-md-4 control-label">Image</label>
 
                             <div class="col-md-6">
-                                <input id="image_url" type="file" class="form-control" name="image_url" value="{{ isset($post->translate('ar')->name) ? $post->translate('ar')->name : old('image') }}" required autofocus>
+                                <input id="image_url" type="file" class="form-control" name="image_url" value="{{ isset($post->image_url) ? $post->image_url: old('image') }}"  autofocus>
 
                                 @if ($errors->has('image_url'))
                                     <span class="help-block">

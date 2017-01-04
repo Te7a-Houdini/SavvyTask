@@ -14,6 +14,7 @@
                     <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
+                                        <th>Category</th>
                                         <th>English Title</th>
                                         <th>Arabic Title</th>
                                         <th>English Description</th>
@@ -29,6 +30,7 @@
                                     @foreach($posts as $postObj)
 
                                         <tr role="row" >
+                                            <td><a href="{{route('category.show',$postObj->category->id)}}">{{$postObj->category->slug}}</a></td>
                                             <td>{{$postObj->translate('en')->title}}</td>
                                             <td>{{$postObj->translate('ar')->title}}</td>
                                             <td>{{$postObj->translate('en')->description}}</td>
