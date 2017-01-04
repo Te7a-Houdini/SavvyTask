@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -36,9 +37,12 @@ class HomeController extends Controller
         return view('home.showCategory', ['posts' => $category->posts()->paginate(10),'category' => $category]);
     }
 
-
-    public function readMore (Post $post)
+    /**
+     * @param Post $post
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function readMore(Post $post)
     {
-        dd($post);
+        return view('home.readMorePost', ['post' => $post]);
     }
 }

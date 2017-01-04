@@ -11,13 +11,13 @@
 
                 <table class="table">
                     <tr>
-                        <th>Slug</th>
+                        <th>Name</th>
                     </tr>
 
                     @foreach($categories as $category)
                         <tr>
                             <td>
-                         <a href="{{route('home.category',$category->id)}}">{{$category->slug}}</a>
+                         <a href="{{route('home.category',$category->id)}}">{{$category->name}}</a>
                             </td>
                         </tr>
                     @endforeach
