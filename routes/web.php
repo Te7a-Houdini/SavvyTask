@@ -27,5 +27,8 @@ Route::delete('/user/{user}', ['as' => 'user.delete', 'uses' => 'UserController@
 /******** category routes *******/
 Route::resource('category', 'CategoryController');
 
+/******** post routes *******/
+Route::resource('post', 'PostController');
+
 
 Route::get('/home', 'HomeController@index');
