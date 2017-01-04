@@ -54,7 +54,7 @@ class PostController extends Controller
         $uploadedFile->move('images/posts', $newFileName);
 
         $request_array = $request->all();
-        $request_array['image_url'] = 'images/posts'. $newFileName;
+        $request_array['image_url'] = '/images/posts/'. $newFileName;
 
         Post::create($request_array);
 
@@ -62,14 +62,13 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
+     * show one category
+     * @param \App\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('post.show', compact('post'));
     }
 
     /**
