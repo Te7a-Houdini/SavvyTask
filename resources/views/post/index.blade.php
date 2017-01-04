@@ -39,7 +39,7 @@
                                             <td><a class="btn btn-sm btn-primary" href="{{route('post.show',$postObj->id)}}">View</a></td>
                                             <td><a class="btn btn-sm btn-default" href="{{route('post.edit',$postObj->id)}}">Edit</a></td>
                                             <td>
-                                                <form action="{{route('category.destroy',$postObj->id)}}" method="post">
+                                                <form action="{{route('post.destroy',$postObj->id)}}" method="post">
                                                     {{csrf_field()}}
                                                     {{method_field('DELETE')}}
                                                     <input class="btn btn-sm btn-danger" type="submit" value="delete" >

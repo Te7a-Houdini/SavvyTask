@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Http\Requests\PostRequest;
@@ -107,13 +106,13 @@ class PostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Post $post
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('post.index');
     }
 }
