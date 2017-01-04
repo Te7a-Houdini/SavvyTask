@@ -29,5 +29,27 @@ class UserController extends Controller
         return view('user.show', compact('user'));
     }
 
+    /**
+     * edit form for user
+     * @param $user
+     * @return \Illuminate\Http\Response
+     */
+
+    public function edit(User $user)
+    {
+        return view('user.edit', [
+            'user' => $user,
+            'url' => route('user.update', $user->id),
+            'method' => 'PATCH',
+            'action' => 'Update'
+        ]);
+    }
+
+    public function update(User $user)
+    {
+        dd($user);
+
+    }
+
 
 }

@@ -20,6 +20,8 @@ Auth::routes();
 /****** user  routes ******/
 Route::get('/user/index', ['as' => 'user.index' ,'uses' => 'UserController@index']);
 Route::get('/user/{user}', ['as' => 'user.show' ,'uses' => 'UserController@show']);
+Route::get('/user/{user}/edit', ['as' => 'user.edit' ,'uses' => 'UserController@edit']);
+Route::patch('/user/{user}', ['as' => 'user.update' ,'uses' => 'UserController@update']);
 
 
 Route::get('/home', 'HomeController@index');
