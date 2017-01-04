@@ -32,9 +32,9 @@ class HomeController extends Controller
      * @param Category $category
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showCategory(Category $category)
+    public function showCategoryPosts(Category $category)
     {
-        return view('home.showCategory', ['posts' => $category->posts()->paginate(10),'category' => $category]);
+        return view('home.showCategoryPosts', ['posts' => $category->posts()->paginate(10),'category' => $category]);
     }
 
     /**
