@@ -29,7 +29,7 @@
                                         $pieces = explode(" ",  $post->description);
                                         $unCompletedDesc = implode(" ", array_splice($pieces, 0, 10));
                                         ?>
-                                        {{ $unCompletedDesc    }}
+                                        {{ $unCompletedDesc  . ' ...'  }}
                                     </td>
                                     <td>
                                         <a href="{{route('home.readMore',$post->id)}}" class="btn btn-sm btn-primary"> Read More</a>
