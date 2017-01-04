@@ -15,7 +15,6 @@ class CategoryController extends Controller
      */
     public function index()
     {
-
         return view('category.index', ['categories' => Category::paginate(4)]);
 
     }
@@ -42,14 +41,15 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
+     * show one category
+     * @param \App\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+    public function show(Category $category)
     {
-        //
+        return view('category.show', compact('category'));
+
     }
 
     /**
