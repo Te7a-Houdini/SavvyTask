@@ -100,7 +100,7 @@
                 <!-- Optionally, you can add icons to the links -->
                 <li ><a href="{{route('user.index')}}"><i class="fa fa-link"></i> <span>Users</span></a></li>
                 <li><a href="{{route('category.index')}}"><i class="fa fa-link"></i> <span>Categories</span></a></li>
-                <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+                <li><a href="{{route('post.index')}}"><i class="fa fa-link"></i> <span>Posts</span></a></li>
 
             </ul>
             <!-- /.sidebar-menu -->

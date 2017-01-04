@@ -10,4 +10,9 @@ class Post extends Model
 
     public $translatedAttributes = ['title','description'];
     protected $fillable = ['image_url'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
