@@ -11,24 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return 'welcome to savvy task';
-});
 
 Auth::routes();
 
-/****** user  routes ******/
-Route::get('/user/index', ['as' => 'user.index' ,'uses' => 'UserController@index']);
-Route::get('/user/{user}', ['as' => 'user.show' ,'uses' => 'UserController@show']);
-Route::get('/user/{user}/edit', ['as' => 'user.edit' ,'uses' => 'UserController@edit']);
-Route::patch('/user/{user}', ['as' => 'user.update' ,'uses' => 'UserController@update']);
-Route::delete('/user/{user}', ['as' => 'user.delete', 'uses' => 'UserController@destroy']);
+Route::group(['middleware' => 'auth'] , function () {
 
-/******** category routes *******/
-Route::resource('category', 'CategoryController');
+    /****** user  routes ******/
+    Route::get('/user/index', ['as' => 'user.index' ,'uses' => 'UserController@index']);
+    Route::get('/user/{user}', ['as' => 'user.show' ,'uses' => 'UserController@show']);
+    Route::get('/user/{user}/edit', ['as' => 'user.edit' ,'uses' => 'UserController@edit']);
+    Route::patch('/user/{user}', ['as' => 'user.update' ,'uses' => 'UserController@update']);
+    Route::delete('/user/{user}', ['as' => 'user.delete', 'uses' => 'UserController@destroy']);
 
-/******** post routes *******/
-Route::resource('post', 'PostController');
+    /******** category routes *******/
+    Route::resource('category', 'CategoryController');
+
+    /******** post routes *******/
+    Route::resource('post', 'PostController');
 
 
-Route::get('/home', 'HomeController@index');
+});
+
+
+Route::get('/', ['as' => 'home' ,'uses' =>'HomeController@indexCategories']);
