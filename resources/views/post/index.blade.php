@@ -31,10 +31,10 @@
 
                                         <tr role="row" >
                                             <td><a href="{{route('category.show',$postObj->category->id)}}">{{$postObj->category->slug}}</a></td>
-                                            <td>{{$postObj->translate('en')->title}}</td>
-                                            <td>{{$postObj->translate('ar')->title}}</td>
-                                            <td>{{$postObj->translate('en')->description}}</td>
-                                            <td>{{$postObj->translate('ar')->description}}</td>
+                                            <td>{{isset($postObj->translate('en')->title) ? $postObj->translate('en')->title : ''}}</td>
+                                            <td>{{isset($postObj->translate('ar')->title) ? $postObj->translate('ar')->title: ''}}</td>
+                                            <td>{{isset($postObj->translate('en')->description) ? $postObj->translate('en')->description : ''}}</td>
+                                            <td>{{isset($postObj->translate('ar')->description) ? $postObj->translate('ar')->description : ''}}</td>
                                             <td>{{$postObj->created_at}}</td>
                                             <td><a class="btn btn-sm btn-primary" href="{{route('post.show',$postObj->id)}}">View</a></td>
                                             <td><a class="btn btn-sm btn-default" href="{{route('post.edit',$postObj->id)}}">Edit</a></td>

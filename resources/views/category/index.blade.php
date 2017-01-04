@@ -29,8 +29,8 @@
 
                                         <tr role="row" >
                                             <td>{{$categoryObj->slug}}</td>
-                                            <td>{{$categoryObj->translate('en')->name}}</td>
-                                            <td>{{$categoryObj->translate('ar')->name}}</td>
+                                            <td>{{isset($categoryObj->translate('en')->name) ? $categoryObj->translate('en')->name : '' }}</td>
+                                            <td>{{isset($categoryObj->translate('ar')->name) ? $categoryObj->translate('ar')->name : '' }}</td>
                                             <td>{{$categoryObj->created_at}}</td>
                                             <td><a class="btn btn-sm btn-primary" href="{{route('category.show',$categoryObj->id)}}">View</a></td>
                                             <td><a class="btn btn-sm btn-default" href="{{route('category.edit',$categoryObj->id)}}">Edit</a></td>
