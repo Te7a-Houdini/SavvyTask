@@ -48,6 +48,7 @@ class UserController extends Controller
 
     /**
      * edit form for user
+     * @param \App\Http\Requests\UserRequest $request
      * @param \App\User $user
      * @return \Illuminate\Http\Response
      */
@@ -63,6 +64,18 @@ class UserController extends Controller
 
         $user->update($request->all());
 
+        return redirect()->route('user.index');
+    }
+
+    /**
+     * delete user
+     * @param \App\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect()->route('user.index');
     }
 
 
