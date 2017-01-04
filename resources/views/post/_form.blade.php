@@ -43,9 +43,7 @@
 
                             <div class="col-md-6">
 
-                                <textarea id="en[description]"  class="form-control" name="en[description]"  required autofocus>
-                                {{ isset($post->translate('en')->description) ? $post->translate('en')->description : old('en.description') }}
-                                 </textarea>
+                                <textarea id="en[description]"  class="form-control" name="en[description]"  required autofocus>{{ isset($post->translate('en')->description) ? $post->translate('en')->description :  old('en.description') }}</textarea>
 
                                 @if ($errors->has('en.description'))
                                     <span class="help-block">
@@ -60,9 +58,7 @@
 
                             <div class="col-md-6">
 
-                                <textarea id="ar[description]"   class="form-control" name="ar[description]"  required autofocus>
-                                {{ isset($post->translate('ar')->description) ? $post->translate('ar')->description : old('ar.description') }}
-                                </textarea>
+                                <textarea id="ar[description]"   class="form-control" name="ar[description]"  required autofocus>{{ isset($post->translate('ar')->description) ? $post->translate('ar')->description : old('ar.description') }}</textarea>
 
                                 @if ($errors->has('ar.description'))
                                     <span class="help-block">

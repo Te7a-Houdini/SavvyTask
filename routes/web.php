@@ -35,4 +35,6 @@ Route::group(['middleware' => 'auth'] , function () {
 Route::group(['prefix' => LaravelLocalization::setLocale() , 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect' ]], function() {
     Route::get('/', ['as' => 'home', 'uses' => 'HomeController@indexCategories']);
     Route::get('/home/{category}', ['as' => 'home.category', 'uses' => 'HomeController@showCategory']);
+    Route::get('/home/{post}/readMore', ['as' => 'home.readMore', 'uses' => 'HomeController@readMore']);
+
 });

@@ -19,8 +19,10 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Translate <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">En</a></li>
-                        <li><a href="#">Ar</a></li>
+
+
+                        <li><a href="    {{ LaravelLocalization::getLocalizedURL('en') }}">En</a></li>
+                        <li><a href="{{ LaravelLocalization::getLocalizedURL('ar') }}">Ar</a></li>
                     </ul>
                 </li>
             </ul>

@@ -27,9 +27,18 @@ class HomeController extends Controller
         return view('home.indexCategories', ['categories' => Category::all()]);
     }
 
-
+    /**
+     * @param Category $category
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showCategory(Category $category)
     {
+        return view('home.showCategory', ['posts' => $category->posts()->paginate(10),'category' => $category]);
+    }
 
+
+    public function readMore (Post $post)
+    {
+        dd($post);
     }
 }
